@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop', require: false
   gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
 end
 
 group :development do
