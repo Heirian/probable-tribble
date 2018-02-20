@@ -87,4 +87,18 @@ Style/SymbolArray:
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 130
+  Max: 120
+
+AllCops:
+  TargetRubyVersion: 2.3
+
+  Include:
+    - '**/config.ru'
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'db/schema.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+Rails:
+  Enabled: true
