@@ -50,7 +50,11 @@
         </li>
 
         <li class="nav-item">
-          <%= render partial: 'layouts/partials/login_items' %>
+          <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
+            <div style="font-size:2em; color:white; line-height: 0px; margin-top: -8px;">
+              <i class="fas fa-sign-out-alt"></i>
+            </div>
+          <% end %>
         </li>
       </ul>
     </div>
