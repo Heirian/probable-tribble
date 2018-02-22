@@ -48,6 +48,11 @@
             </div>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <%= link_to gravatar_for(current_user, size: 30, class: 'avatar avatar-nav'), edit_user_registration_path %>
+          </a>
+        </li>
 
         <li class="nav-item">
           <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
