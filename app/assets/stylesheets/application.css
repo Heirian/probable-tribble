@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+ .avatar {
+   border-radius: 50%;
+   border: 2px solid #fff;
+   background-color: #fff;
+   &:hover {
+     border: 2px solid #F0F8FF;
+   }
+ }
+
+ .avatar-nav {
+   display: inline-block;
+   margin-top: -24px;
+ }
