@@ -4,10 +4,10 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= favicon_link_tag 'logo.png' %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="turbolinks-visit-control" content="reload">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= render partial: 'stylesheets/stylesheets' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
     <%= render partial: 'javascripts/javascripts' %>
   </head>
 
