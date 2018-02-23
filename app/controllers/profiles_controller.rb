@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is the profiles controller which controls the profiles pages
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_profile, except: [:index]

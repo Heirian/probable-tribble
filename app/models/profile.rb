@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This is the profile model
 class Profile < ApplicationRecord
   belongs_to :user
 
