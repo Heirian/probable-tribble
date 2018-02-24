@@ -6,10 +6,10 @@
       <div class="card-body">
         <%= gravatar_for(current_user, class: 'profile-img rounded mx-auto d-block rounded-circle') %>
         <br>
-        <p class="card-text hello text-center">HEY,</p>
-        <p class="card-text myname text-center">MY NAME IS</p>
-        <p class="card-text bruno text-center">BRUNO TEÓFILO</p>
-        <p class="card-text softdeve text-center">I’M A WEB & SOFTWARE DEVELOPER</p>
+        <p class="card-text bruno text-center"><%= current_profile.name %></p>
+        <p class="card-text softdeve text-center"><%= current_profile.bio %></p>
+        <p class="card-text hello text-center"><%= current_profile.birthday.strftime("%B %d, %Y") %></p>
+        <p class="card-text myname text-center"><%= current_profile.gender %></p>
       </div>
     </div>
 
