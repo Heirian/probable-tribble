@@ -33,3 +33,5 @@ pt-BR:
   hello_word: "Olá mundo"
   login: "Entrar"
   logout: "Sair"
+  male: 'Homem'
+  female: 'Mulher'

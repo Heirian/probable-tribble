@@ -33,3 +33,5 @@ en:
   hello_word: "Hello world"
   login: "Login"
   logout: "Logout"
+  male: 'Male'
+  female: 'Female'
