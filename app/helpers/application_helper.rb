@@ -10,4 +10,8 @@ module ApplicationHelper
   def application_title
     'Gamarch'
   end
+
+  def current_year
+    Time.zone.today.year
+  end
 end
