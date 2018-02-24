@@ -14,9 +14,9 @@
   <body>
     <%= render partial: "layouts/partials/#{nav_bar}" %>
 
-    <div class="container">
+    <main role="main" class="container">
       <%= yield %>
-    </div>
+    </main>
 
     <%= render partial: "layouts/partials/main_footer" %>
   </body>
