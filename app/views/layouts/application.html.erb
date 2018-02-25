@@ -12,13 +12,14 @@
   </head>
 
   <body>
-    <%= render partial: "layouts/partials/#{nav_bar}" %>
+    <%#= render partial: "layouts/partials/#{nav_bar}" %>
+    <%= render partial: "layouts/partials/main_nav_bar" if user_signed_in? %>
 
     <main role="main" class="container">
       <%= yield %>
     </main>
 
-    <%= render partial: "layouts/partials/main_footer" %>
+    <%= render partial: "layouts/partials/main_footer" if user_signed_in? %>
   </body>
 
 </html>
