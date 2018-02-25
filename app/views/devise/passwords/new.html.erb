@@ -1,5 +1,4 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "form-signin", method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
   <div class="text-center mb-4">
     <img class="mb-4" src="<%= asset_path('logoback.png') %>" alt="" width="72" height="72">
@@ -8,21 +7,21 @@
 
   <div class="form-label-group">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email address", required: true  %>
-    <label for="inputEmail">Email address</label>
+    <label for="inputEmail"><%= t(:email_address) %></label>
   </div>
 
-  <button class="btn btn-lg btn-dark btn-block" type="submit">Send me reset password instructions</button>
+  <button class="btn btn-lg btn-dark btn-block" type="submit"><%= t(:send_reset_instructions) %></button>
 <% end %>
 
 <div class="text-center mb-4">
   <h4 class="h5 mb-3 font-weight-normal">
-    Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %>
+    <%= t(:dont_have_an_account?) %> <%= link_to t(:sign_up), new_registration_path(resource_name) %>
   </h4>
 </div>
 
 <div class="text-center mb-4">
   <h4 class="h5 mb-3 font-weight-normal">
-    Have an account? <%= link_to "Sign in", new_session_path(resource_name) %>
+    <%= t(:have_an_account?) %> <%= link_to t(:login), new_session_path(resource_name) %>
   </h4>
 </div>
 
