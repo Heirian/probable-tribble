@@ -7,7 +7,7 @@
   </div>
 
   <div class="form-label-group">
-    <%= f.email_field :email, autofocus: true, autocomplete: "off", id: "inputEmail", class: "form-control", placeholder: "Email address", required: true  %>
+    <%= f.email_field :email, autocomplete: "off", id: "inputEmail", class: "form-control", placeholder: "Email address", required: true  %>
     <label for="inputEmail"><%= t(:email_address) %></label>
   </div>
 
@@ -21,12 +21,8 @@
     </label>
   </div>
 
-  <div class="form-label-group">
-    <%= f.password_field :password_confirmation, autocomplete: "off", id:"inputPassword", class: "form-control", placeholder: "Password", required: true  %>
-    <label for="inputPassword"><%= t(:password_confirmation) %></label>
-  </div>
-
   <button class="btn btn-lg btn-dark btn-block" type="submit"><%= t(:sign_up) %></button>
+  <%= render "devise/shared/errors" %>
   <p class="mt-3 mb-3 text-muted text-center"><%= t(:sign_up_terms) %></p>
 <% end %>
 
