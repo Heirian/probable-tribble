@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card ml-0" style="width: auto;">
+      <img class="card-img-top" src=" <%= asset_path('profile-cover.jpg') %>" alt="">
+      <div class="card-body">
+        <%= gravatar_for(current_user, size: 90, class: 'profile-img rounded mx-auto d-block rounded-circle') %>
+        <br>
+        <p class="card-text bruno text-center"><%= current_profile.name %></p>
+        <p class="card-text softdeve text-center"><%= current_profile.bio %></p>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-lg-6">
+    <div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card ml-0" style="width: auto;">
+      <img class="card-img-top" src=" <%= asset_path('profile-cover.jpg') %>" alt="">
+      <div class="card-body">
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%= stylesheet_link_tag 'profile_card', media: 'all' %>

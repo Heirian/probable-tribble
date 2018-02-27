@@ -33,3 +33,7 @@ pt-BR:
   hello_word: "Olá mundo"
   login: "Entrar"
   logout: "Sair"
+  male: 'Homem'
+  female: 'Mulher'
+  rights_reserved: 'Todos os direitos reservados'
+  autobio: 'Não tenho bio ainda.'

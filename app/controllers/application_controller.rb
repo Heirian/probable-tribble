@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This is the application controller
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :default_url_options

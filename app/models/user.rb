@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This is the user model
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -5,4 +8,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile, dependent: :nullify
+
+  after_create :ensure_profile
+
+  private
+
+  def auto_generate_name
+    email.split('@').first.capitalize
+  end
+
+  def ensure_profile
+    build_profile(name: auto_generate_name, bio: I18n.t(:autobio)).save
+  end
 end
