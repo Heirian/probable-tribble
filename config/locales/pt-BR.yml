@@ -50,3 +50,15 @@ pt-BR:
   remember_me: "lembrar-me"
   forgot_your_password?: "Esqueceu a senha?"
   dont_have_an_account?: 'Não tem uma conta?'
+  activerecord:
+    attributes:
+      user:
+        password: 'Senha'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'já utilizado'
+            password:
+              too_short: 'muito curta'
