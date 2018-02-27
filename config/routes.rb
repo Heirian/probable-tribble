@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
-    devise_for :users
+    devise_scope :user do
+      get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
+      post 'sign_in', to: 'devise/sessions#create', as: :user_session
+      delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+      get "/sign_up", to: "users/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
+      post "/sign_up", to: "users/registrations#create", as: "user_registration"
+    end
+    resources :users
+    devise_for :users, skip: [:sessions]
     root to: 'home#index'
     resources :profiles
   end
