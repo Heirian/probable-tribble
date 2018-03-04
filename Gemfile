@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.2'
-gem 'mailgun-ruby', '~>1.1.6'
+gem 'mailgun-ruby', '~>1.1.6', require: 'mailgun'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
