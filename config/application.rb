@@ -49,7 +49,7 @@ module Gamarch
       domain: ENV['MAILGUN_DOMAIN'],
       authentication: "plain",
       enable_starttls_auto: true,
-      user_name: ENV['MAILGUN_SMTP_USERNAME'],
+      user_name: ENV['MAILGUN_SMTP_LOGIN'],
       password: ENV['MAILGUN_SMTP_PASSWORD']
     }
   end
