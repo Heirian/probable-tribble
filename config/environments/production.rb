@@ -64,6 +64,16 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "gamarch_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    authentication: :plain,
+    address: "smtp.mailgun.org",
+    port: 587,
+    domain: "https://api.mailgun.net/v3/gamarch.com",
+    user_name: "postmaster@gamarch.com",
+    password: "78a5714bdde595dd1f030c92894f913d-e89319ab-19fb2357",
+    api_key: 'key-ced540a5a69fb257ad4fdbce27bc02e6'
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
