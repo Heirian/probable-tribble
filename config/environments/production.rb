@@ -66,8 +66,8 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-		  api_key: 'key-ced540a5a69fb257ad4fdbce27bc02e6',
-		   domain: 'https://api.mailgun.net/v3/gamarch.com'
+		api_key: 'key-ced540a5a69fb257ad4fdbce27bc02e6',
+		domain: 'https://api.mailgun.net/v3/gamarch.com'
   }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
