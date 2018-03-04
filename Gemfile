@@ -58,6 +58,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'mailgun_rails', '~> 0.7.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
