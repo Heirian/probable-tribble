@@ -31,9 +31,34 @@
 
 pt-BR:
   hello_word: "Olá mundo"
-  login: "Entrar"
+  login: "Faça login"
   logout: "Sair"
   male: 'Homem'
   female: 'Mulher'
   rights_reserved: 'Todos os direitos reservados'
   autobio: 'Não tenho bio ainda.'
+  sign_up_terms: "Ao cadastrar-se, você concorda com nossos Termos e Política de Privacidade."
+  sign_in: "Entrar"
+  sign_up: "Cadastre-se"
+  have_an_account?: "Tem uma conta?"
+  email_address: 'Endereço de email'
+  password: 'Senha'
+  password_confirmation: 'Confirmação da senha'
+  send_reset_instructions: "Redefinir senha"
+  gaming_better_slogan: "Aprimore suas habilidades e evolua a comunidade do seu jogo favorito."
+  characters_minimum: "caracteres mínimos"
+  remember_me: "lembrar-me"
+  forgot_your_password?: "Esqueceu a senha?"
+  dont_have_an_account?: 'Não tem uma conta?'
+  activerecord:
+    attributes:
+      user:
+        password: 'Senha'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'já utilizado'
+            password:
+              too_short: 'muito curta'

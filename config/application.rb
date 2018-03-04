@@ -31,7 +31,7 @@ module Gamarch
     config.generators.system_tests = nil
     config.autoload_paths += Dir[Rails.root.join('lib')]
 
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.available_locales = [:en, 'pt-BR']
     config.i18n.default_locale = :en
   end

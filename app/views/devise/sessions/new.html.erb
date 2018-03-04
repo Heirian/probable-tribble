@@ -6,29 +6,30 @@
 
   <div class="form-label-group">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email address", required: true  %>
-    <label for="inputEmail">Email address</label>
+    <label for="inputEmail"><%= t(:email_address) %></label>
   </div>
 
   <div class="form-label-group">
     <%= f.password_field :password, autocomplete: "off", id:"inputPassword", class: "form-control", placeholder: "Password", required: true  %>
-    <label for="inputPassword">Password</label>
+    <label for="inputPassword"><%= t(:password) %></label>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="checkbox mb-3">
       <label>
-        <%= f.check_box :remember_me %> Remember me
+        <%= f.check_box :remember_me %> <%= t(:remember_me) %>
       </label>
     </div>
   <% end -%>
 
-  <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
-  <p class="mt-3 mb-3 text-muted text-center"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
+  <button class="btn btn-lg btn-dark btn-block" type="submit"><%= t(:sign_in) %></button>
+  <p class="mt-3 mb-3 text-danger text-center"><%= alert %></p>
+  <p class="mt-3 mb-3 text-muted text-center"><%= link_to t(:forgot_your_password?), new_reset_password_path %></p>
 <% end %>
 
 <div class="text-center mb-4">
   <h4 class="h5 mb-3 font-weight-normal">
-    Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %>
+    <%= t(:dont_have_an_account?) %> <%= link_to t(:sign_up), new_registration_path(resource_name) %>
   </h4>
 </div>
 
