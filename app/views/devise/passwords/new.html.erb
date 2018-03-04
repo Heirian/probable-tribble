@@ -6,7 +6,7 @@
   </div>
 
   <div class="form-label-group">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email address", required: true  %>
+    <%= f.email_field :email, value: params[:email], autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email address", required: true  %>
     <label for="inputEmail"><%= t(:email_address) %></label>
   </div>
 
