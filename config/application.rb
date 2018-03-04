@@ -34,5 +34,23 @@ module Gamarch
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.available_locales = [:en, 'pt-BR']
     config.i18n.default_locale = :en
+
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exists?(env_file)
+    end
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: "smtp.mailgun.org",
+      port: 587,
+      domain: ENV['MAILGUN_DOMAIN'], # CHANGE THIS
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV['MAILGUN_SMTP_USERNAME'], # CHANGE THIS
+      password: ENV['MAILGUN_SMTP_PASSWORD'] # CHANGE THIS
+    }
   end
 end
