@@ -50,6 +50,8 @@ pt-BR:
   remember_me: "lembrar-me"
   forgot_your_password?: "Esqueceu a senha?"
   dont_have_an_account?: 'Não tem uma conta?'
+  profile: 'Perfil'
+  settings: 'Configurações'
   activerecord:
     attributes:
       user:
