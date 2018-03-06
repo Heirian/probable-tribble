@@ -14,7 +14,7 @@ class User < ApplicationRecord
   private
 
   def auto_generate_name
-    email.split('@').first.capitalize
+    (email.split('@').first.capitalize + Time.now.nsec.to_s + SecureRandom.hex)[0..29]
   end
 
   def ensure_profile
