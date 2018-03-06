@@ -14,7 +14,7 @@
           <h3 class="mb-0">Profile information</h3>
       </div>
       <div class="card-body">
-          <form class="form" role="form" autocomplete="off">
+          <%= form_for(@profile, html: { role: 'form', autocomplete: false } ) do |f| %>
               <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Name</label>
                   <div class="col-lg-9">
@@ -55,19 +55,16 @@
               <div class="form-group row">
                  <label class="col-lg-3 col-form-label form-control-label">Gender</label>
                  <div class="col-lg-9">
-                  <select id="user_time_zone" class="form-control" size="0">
-                    <option value="1">Male</option>
-                    <option value="0">Female</option>
-                  </select>
+                  <%= f.select :gender, options_for_enum(@profile, :gender), {}, { class: 'form-control' } %>
                 </div>
               </div>
               <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label"></label>
                   <div class="col-lg-9">
-                    <input type="button" class="btn btn-dark" value="Save Changes">
+                    <%= f.submit('Save Changes', class: 'btn btn-dark') %>
                   </div>
               </div>
-          </form>
+          <% end %>
       </div>
     </div>
   </div>
