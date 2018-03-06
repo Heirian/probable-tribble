@@ -31,9 +31,22 @@
 
 en:
   hello_word: "Hello world"
-  login: "Login"
+  login: "Log in"
   logout: "Logout"
   male: 'Male'
   female: 'Female'
   rights_reserved: 'All rights reserved'
   autobio: 'I don"t have bio.'
+  sign_up_terms: "By signing up, you agree to our Terms & Privacy Policy."
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  have_an_account?: "Have an account?"
+  email_address: 'Email address'
+  password: 'Password'
+  password_confirmation: 'Password confirmation'
+  send_reset_instructions: "Send me reset password instructions"
+  gaming_better_slogan: "Enhance your skills and evolve the community of your favorite game."
+  characters_minimum: "characters minimum"
+  remember_me: "remember me"
+  forgot_your_password?: "Forgot your password?"
+  dont_have_an_account?: "Don't have an account?"
