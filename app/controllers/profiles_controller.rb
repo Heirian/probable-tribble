@@ -12,6 +12,8 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
+    return render 'edit' unless @profile.update(profile_params)
+    redirect_to profile_path(@profile)
   end
 
   private
@@ -22,5 +24,9 @@ class ProfilesController < ApplicationController
 
   def ensure_profile_id
     params[:id].to_i
+  end
+
+  def profile_params
+    params.require(:profile).permit(:gender)
   end
 end
