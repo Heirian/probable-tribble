@@ -9,11 +9,13 @@ Rails.application.routes.draw do
       get "/reset_password", to: "users/passwords#new", as: "new_reset_password"
       post "/reset_password", to: "users/passwords#create", as: "reset_password"
     end
+
     resource :user, only: [:edit] do
       collection do
         patch 'update_password'
       end
     end
+
     devise_for :users, skip: [:sessions]
     root to: 'home#index'
     resources :profiles
