@@ -14,10 +14,12 @@ ActiveRecord::Schema.define(version: 2018_02_22_210856) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
-    t.string "username"
+    t.string "username", default: "", null: false
     t.string "name"
     t.string "bio"
     t.string "phone"
+    t.string "website"
+    t.boolean "active", default: true
     t.date "birthday"
     t.integer "gender"
     t.datetime "created_at", null: false
