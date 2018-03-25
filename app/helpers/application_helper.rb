@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def application_title
-    'Gamarch'
+    ENV['APPLICATION_TITLE'] || 'Gamarch'
   end
 
   def current_year
