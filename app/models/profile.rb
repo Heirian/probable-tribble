@@ -4,5 +4,8 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  enum gender: %I[#{I18n.t(:female)} #{I18n.t(:male)}]
+  validates :name, presence: true, length: { minimum: 3, maximum: 30 },
+                   uniqueness: { case_sensitive: false }
+
+  enum gender: %i[female male]
 end

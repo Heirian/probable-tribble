@@ -50,3 +50,13 @@ en:
   remember_me: "remember me"
   forgot_your_password?: "Forgot your password?"
   dont_have_an_account?: "Don't have an account?"
+  profile: 'Profile'
+  settings: 'Settings'
+  send: 'Send'
+  save: 'Save'
+  activerecord:
+    enums:
+      profile:
+        gender:
+          female: 'Female'
+          male: 'Male'

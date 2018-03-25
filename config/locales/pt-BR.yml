@@ -50,10 +50,31 @@ pt-BR:
   remember_me: "lembrar-me"
   forgot_your_password?: "Esqueceu a senha?"
   dont_have_an_account?: 'Não tem uma conta?'
+  profile: 'Perfil'
+  settings: 'Configurações'
+  private_information: 'Informações privadas'
+  edit_profile: 'Editar perfil'
+  send: 'Enviar'
+  save: 'Salvar'
+  change_password: 'Alterar senha'
   activerecord:
     attributes:
       user:
         password: 'Senha'
+        current_password: 'Senha antiga'
+        password_confirmation: 'Confirme a nova senha'
+      profile:
+        bio: 'Biografia'
+        username: 'Nome de usuário'
+        name: 'Nome'
+        phone: 'Telefone'
+        gender: 'Sexo'
+        birthday: 'Aniverário'
+    enums:
+      profile:
+        gender:
+          female: 'Feminino'
+          male: 'Masculino'
     errors:
       models:
         user:

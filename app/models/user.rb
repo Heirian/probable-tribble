@@ -14,10 +14,10 @@ class User < ApplicationRecord
   private
 
   def auto_generate_name
-    email.split('@').first.capitalize
+    (email.split('@').first.capitalize + Time.now.nsec.to_s + SecureRandom.hex)[0..29]
   end
 
   def ensure_profile
-    build_profile(name: auto_generate_name, bio: I18n.t(:autobio)).save
+    build_profile(username: auto_generate_name, bio: I18n.t(:autobio)).save
   end
 end

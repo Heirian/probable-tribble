@@ -48,18 +48,24 @@
             </div>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link py-0" href="#">
-            <%= link_to gravatar_for(current_user, size: 30, class: 'avatar'), profile_path(current_profile) %>
+        <li class="nav-item dropdown">
+          <a class="nav-link py-0 dropdown-toggle" href="#" id="nav-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= gravatar_for(current_user, size: 30, class: 'avatar') %>
           </a>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link py-0') do %>
-            <div class="nav-icon">
-              <i class="fas fa-sign-out-alt"></i>
-            </div>
-          <% end %>
+          <div class="dropdown-menu" aria-labelledby="nav-dropdown">
+            <%= link_to(profile_path(current_profile), class: 'dropdown-item') do %>
+              <i class="fas fa-user-circle"></i> <%= t(:profile) %>
+            <% end %>
+            <%= link_to(edit_profile_path(current_profile), class: 'dropdown-item') do %>
+              <i class="fas fa-cogs"></i> <%= t(:settings) %>
+            <% end %>
+            <%= link_to(edit_user_path, class: 'dropdown-item') do %>
+              <i class="fas fa-cogs"></i> <%= t(:password) %>
+            <% end %>
+            <%= link_to(destroy_user_session_path, method: :delete, class: 'dropdown-item py-0') do %>
+              <i class="fas fa-sign-out-alt"></i> <%= t(:logout) %>
+            <% end %>
+          </div>
         </li>
       </ul>
     </div>
