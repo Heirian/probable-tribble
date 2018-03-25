@@ -16,6 +16,11 @@ class ProfilesController < ApplicationController
 
   private
 
+  def profile_params
+    params.require(:profile).permit(:name, :username, :birthday,
+                                    :gender, :bio, :phone)
+  end
+
   def ensure_profile
     @profile = Profile.find(ensure_profile_id)
   end
