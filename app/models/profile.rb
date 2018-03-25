@@ -8,4 +8,6 @@ class Profile < ApplicationRecord
                    uniqueness: { case_sensitive: false }
 
   enum gender: %i[female male]
+
+  has_one_attached :avatar
 end
