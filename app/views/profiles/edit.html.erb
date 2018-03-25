@@ -45,6 +45,14 @@
               <%= t(:private_information) %>
             </div>
           </div>
+          <%= f.fields_for :user do |ff| %>
+            <div class="form-group row">
+              <%= ff.label :email, class: 'col-lg-3 col-form-label form-control-label' %>
+              <div class="col-lg-9">
+                <%= ff.text_field :email, class: 'form-control', require: '' %>
+              </div>
+            </div>
+          <% end %>
           <div class="form-group row">
             <%= f.label :phone, class: 'col-lg-3 col-form-label form-control-label' %>
             <div class="col-lg-9">
