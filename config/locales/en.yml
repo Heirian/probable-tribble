@@ -52,3 +52,11 @@ en:
   dont_have_an_account?: "Don't have an account?"
   profile: 'Profile'
   settings: 'Settings'
+  send: 'Send'
+  save: 'Save'
+  activerecord:
+    enums:
+      profile:
+        gender:
+          female: 'Female'
+          male: 'Male'
