@@ -12,6 +12,12 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
+    if params[:avatar].present?
+      if @profile.avatar.present?
+        @profile.avatar.destroy
+      end
+      @profile.avatar.attach(params[:avatar])
+    end
     return render 'edit' unless @profile.update(profile_params)
     redirect_to profile_path(@profile)
   end
@@ -32,6 +38,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:gender)
+    params.require(:profile).permit(:gender, :avatar, :name, :username, :bio, :phone, :birthday)
   end
 end
