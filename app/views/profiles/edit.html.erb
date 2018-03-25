@@ -11,63 +11,59 @@
         <div class="float-md-right">
           <%= gravatar_for(current_user, size: 38, class: 'avatar') %>
         </div>
-          <h3 class="mb-0">Profile information</h3>
+          <h3 class="mb-0"><%= t(:edit_profile) %></h3>
       </div>
       <div class="card-body">
-          <form class="form" role="form" autocomplete="off">
-              <div class="form-group row">
-                  <label class="col-lg-3 col-form-label form-control-label">Name</label>
-                  <div class="col-lg-9">
-                      <input class="form-control" type="text" value="Jane">
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                  <div class="col-lg-9">
-                      <input class="form-control" type="text" value="Bishop">
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                  <div class="col-lg-9">
-                      <input class="form-control" type="url" value="">
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-lg-3 col-form-label form-control-label">Biografy</label>
-                  <div class="col-lg-9">
-                      <textarea rows="2" name="message2" id="message2" class="form-control" required=""></textarea>
-                  </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label"></label>
-                <div class="col-lg-9">
-                      Informações privadas
-                </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                  <div class="col-lg-9">
-                      <input class="form-control" type="text" value="janeuser">
-                  </div>
-              </div>
-
-              <div class="form-group row">
-                 <label class="col-lg-3 col-form-label form-control-label">Gender</label>
-                 <div class="col-lg-9">
-                  <select id="user_time_zone" class="form-control" size="0">
-                    <option value="1">Male</option>
-                    <option value="0">Female</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-lg-3 col-form-label form-control-label"></label>
-                  <div class="col-lg-9">
-                    <input type="button" class="btn btn-dark" value="Save Changes">
-                  </div>
-              </div>
-          </form>
+        <%= form_for(@profile, url: { action: :update }, html: { role: 'form', autocomplete: false } ) do |f| %>
+          <div class="form-group row">
+            <%= f.label :name, class: 'col-lg-3 col-form-label form-control-label' %>
+            <div class="col-lg-9">
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :username, class: 'col-lg-3 col-form-label form-control-label' %>
+            <div class="col-lg-9">
+              <%= f.text_field :username, class: 'form-control', require: '' %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :bio, class: 'col-lg-3 col-form-label form-control-label' %>
+            <div class="col-lg-9">
+              <%= f.text_area :bio, rows: 2, class: 'form-control', require: '' %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label form-control-label"></label>
+            <div class="col-lg-9">
+              <%= t(:private_information) %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :phone, class: 'col-lg-3 col-form-label form-control-label' %>
+            <div class="col-lg-9">
+              <%= f.text_field :phone, class: 'form-control', require: '' %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :gender, class: 'col-lg-3 col-form-label form-control-label' %>
+            <div class="col-lg-9">
+              <%= f.select :gender, options_for_enum(@profile, :gender), {}, { class: 'form-control', size: 0 } %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :birthday, class: 'col-lg-3 col-form-label form-control-label' %>
+            <div class="col-lg-9">
+              <%= f.text_field :birthday, class: "form-control"  %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label form-control-label"></label>
+            <div class="col-lg-9">
+              <%= f.submit(t(:save), class: 'btn btn-dark') %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
