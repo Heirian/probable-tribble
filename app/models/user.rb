@@ -18,6 +18,6 @@ class User < ApplicationRecord
   end
 
   def ensure_profile
-    build_profile(name: auto_generate_name, bio: I18n.t(:autobio)).save
+    build_profile(username: auto_generate_name, bio: I18n.t(:autobio)).save
   end
 end
