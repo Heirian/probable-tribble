@@ -12,6 +12,13 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
+    if @profile.update(profile_params)
+      flash[:success] = "Atualizado"
+      redirect_to profile_path(@profile)
+    else
+      flash[:danger] = "Erros"
+      render 'update'
+    end
   end
 
   private
