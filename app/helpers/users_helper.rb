@@ -6,8 +6,8 @@ module UsersHelper
   def gravatar_for(user, options = { size: 150, class: 'gravatar' })
     size = options[:size]
     img_class = options[:class]
-    if user.profile.avatar.present?
-      gravatar_url = user.profile.avatar
+    if user.profile.avatar.attached?
+      gravatar_url = user.profile.avatar.variant(resize: "#{size}x#{size}")
     else
       gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
       gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
