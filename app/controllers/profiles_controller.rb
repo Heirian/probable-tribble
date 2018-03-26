@@ -18,8 +18,12 @@ class ProfilesController < ApplicationController
       end
       @profile.avatar.attach(params[:avatar])
     end
-    return render 'edit' unless @profile.update(profile_params)
-    redirect_to profile_path(@profile)
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile)
+    else
+      flash[:danger] = @profile.errors.full_messages
+      render 'edit'
+    end
   end
 
   private
