@@ -7,6 +7,7 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
   validates :name, presence: true, length: { minimum: 3, maximum: 30 },
                    uniqueness: { case_sensitive: false }
+  validates_with AvatarValidator
 
   enum gender: %i[female male]
 
