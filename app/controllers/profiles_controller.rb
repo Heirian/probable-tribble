@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
   private
 
   def ensure_profile
-    @profile = Profile.find(ensure_profile_id)
+    @profile = Profile.includes(:user).find(ensure_profile_id)
   end
 
   def ensure_profile_id
