@@ -15,6 +15,12 @@
       </div>
       <div class="card-body">
         <%= form_for(@profile, url: { action: :update }, html: { role: 'form', autocomplete: false } ) do |f| %>
+        <div class="form-group row">
+          <%= f.label :avatar, class: 'col-lg-3 col-form-label form-control-label' %>
+          <div class="col-lg-9">
+            <%= f.file_field :avatar, class: 'form-control' %>
+          </div>
+        </div>
           <div class="form-group row">
             <%= f.label :name, class: 'col-lg-3 col-form-label form-control-label' %>
             <div class="col-lg-9">
@@ -39,6 +45,14 @@
               <%= t(:private_information) %>
             </div>
           </div>
+          <%= f.fields_for :user do |ff| %>
+            <div class="form-group row">
+              <%= ff.label :email, class: 'col-lg-3 col-form-label form-control-label' %>
+              <div class="col-lg-9">
+                <%= ff.text_field :email, class: 'form-control', require: '' %>
+              </div>
+            </div>
+          <% end %>
           <div class="form-group row">
             <%= f.label :phone, class: 'col-lg-3 col-form-label form-control-label' %>
             <div class="col-lg-9">

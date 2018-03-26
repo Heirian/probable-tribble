@@ -12,19 +12,24 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
-    return render 'edit' unless @profile.update(profile_params)
-    redirect_to profile_path(@profile)
+    if params[:avatar].present?
+      if @profile.avatar.attached?
+        @profile.avatar.purge
+      end
+      @profile.avatar.attach(params[:avatar])
+    end
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile)
+    else
+      flash[:danger] = @profile.errors.full_messages
+      render 'edit'
+    end
   end
 
   private
 
-  def profile_params
-    params.require(:profile).permit(:name, :username, :birthday,
-                                    :gender, :bio, :phone)
-  end
-
   def ensure_profile
-    @profile = Profile.find(ensure_profile_id)
+    @profile = Profile.includes(:user).find(ensure_profile_id)
   end
 
   def ensure_profile_id
@@ -32,6 +37,8 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:gender)
+    params.require(:profile).permit(:gender, :avatar, :name,
+                                    :username, :bio, :phone,
+                                    :birthday, user_attributes: [:id, :email])
   end
 end
