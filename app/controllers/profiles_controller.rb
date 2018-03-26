@@ -13,8 +13,8 @@ class ProfilesController < ApplicationController
 
   def update
     if params[:avatar].present?
-      if @profile.avatar.present?
-        @profile.avatar.destroy
+      if @profile.avatar.attached?
+        @profile.avatar.purge
       end
       @profile.avatar.attach(params[:avatar])
     end
