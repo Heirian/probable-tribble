@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       bypass_sign_in(@user)
       redirect_to root_path
     else
-      render "edit"
+      render 'edit'
     end
   end
 

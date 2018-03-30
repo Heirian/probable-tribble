@@ -12,9 +12,7 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
-    if params[:avatar].present?
-      @profile.avatar.attach(params[:avatar])
-    end
+    @profile.avatar.attach(params[:avatar]) if params[:avatar].present?
     if @profile.update(profile_params)
       flash[:success] = 'Perfil salvo'
       redirect_to profile_path(@profile)
@@ -37,6 +35,6 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:gender, :avatar, :name,
                                     :username, :bio, :phone,
-                                    :birthday, user_attributes: [:id, :email])
+                                    :birthday, user_attributes: %i[id email])
   end
 end
