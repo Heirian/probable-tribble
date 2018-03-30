@@ -1,0 +1,2 @@
+class GameDeveloper < ApplicationRecord
+end
