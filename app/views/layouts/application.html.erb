@@ -16,6 +16,10 @@
   <body>
     <%#= render partial: "layouts/partials/#{nav_bar}" %>
     <%= render partial: "layouts/partials/main_nav_bar" if user_signed_in? %>
+    <% flash.each do |name, message| %>
+      <div class="flash hidden" name="<%= name %>" value="<%= message %>">
+      </div>
+    <% end %>
 
     <main role="main" class="container">
       <%= yield %>
