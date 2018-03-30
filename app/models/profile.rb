@@ -4,7 +4,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
   accepts_nested_attributes_for :user
-  has_one_attached :avatar
+  has_many_attached :avatar
   validates :username, presence: true, length: { minimum: 3, maximum: 30 },
                    uniqueness: { case_sensitive: false }
   validates_with AvatarValidator
