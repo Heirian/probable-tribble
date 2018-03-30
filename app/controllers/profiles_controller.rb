@@ -13,16 +13,14 @@ class ProfilesController < ApplicationController
 
   def update
     if params[:avatar].present?
-      if @profile.avatar.attached?
-        @profile.avatar.purge
-      end
       @profile.avatar.attach(params[:avatar])
     end
     if @profile.update(profile_params)
+      flash[:success] = 'Perfil salvo'
       redirect_to profile_path(@profile)
     else
-      flash[:danger] = @profile.errors.full_messages
-      render 'edit'
+      flash.now[:error] = @profile.errors.full_messages.join(' - ')
+      render :edit
     end
   end
 
