@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     devise_for :users, skip: [:sessions]
     root to: 'home#index'
     resources :profiles
+    resources :developers, except: [:destroy]
+    resources :genres, except: [:destroy]
+    resources :games, except: [:destroy]
+    resources :categories, except: [:destroy]
+    resources :articles
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
