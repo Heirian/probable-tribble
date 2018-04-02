@@ -1,0 +1,19 @@
+<div class="float-right">
+  <%= link_to 'New game', new_game_path, class: 'btn btn-primary' %>
+</div>
+<% @games.each do |game| %>
+<div class="row">
+  <ul>
+    <li>
+      <%= link_to game.title, game.website, target: '_blank' %> -
+      <%= link_to 'Show', game_path(game) %> -
+      <%= link_to 'Edit', edit_game_path(game) %>
+    </li>
+    <% game.genres.each do |genre| %>
+    <div>
+      <%= genre.title %>
+    </div>
+    <% end %>
+  </ul>
+</div>
+<% end %>

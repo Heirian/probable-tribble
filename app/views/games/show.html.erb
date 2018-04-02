@@ -1,0 +1,6 @@
+<%= @game.title %>
+<%= link_to 'Website', @game.website, target: '_blank' %>
+<% @game.genres.each do |genre| %>
+  <%= genre.title %>
+<% end %>
+<%= link_to 'Index', games_path %>

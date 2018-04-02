@@ -1,0 +1,10 @@
+<%= form_for(@category, html: { class: 'form-horizontal', role: 'form' }) do |f| %>
+  <div class="form-group">
+    <%= f.text_field :title, class: 'form-control', placeholder: 'Titulo' %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<br>
+
+<%= link_to 'Index', categories_path, class: 'btn btn-success' %>

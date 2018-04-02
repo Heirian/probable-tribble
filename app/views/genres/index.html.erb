@@ -1,0 +1,13 @@
+<div class="float-right">
+  <%= link_to 'New genre', new_genre_path, class: 'btn btn-primary' %>
+</div>
+<% @genres.each do |genre| %>
+<div class="row">
+  <ul>
+    <li>
+      <%= link_to genre.title, genre_path(genre) %> -
+      <%= link_to 'Edit', edit_genre_path(genre) %>
+    </li>
+  </ul>
+</div>
+<% end %>

@@ -1,0 +1,13 @@
+<div class="float-right">
+  <%= link_to 'New category', new_category_path, class: 'btn btn-primary' %>
+</div>
+<% @categories.each do |category| %>
+<div class="row">
+  <ul>
+    <li>
+      <%= link_to category.title, category_path(category) %> -
+      <%= link_to 'Edit', edit_category_path(category) %>
+    </li>
+  </ul>
+</div>
+<% end %>

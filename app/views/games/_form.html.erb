@@ -1,0 +1,26 @@
+<%= form_for(@game, html: { class: 'form-horizontal', role: 'form' }) do |f| %>
+  <div class="form-group">
+    <%= f.text_field :title, class: 'form-control', placeholder: 'titulo' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :description, class: 'form-control', placeholder: 'descrição' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :body, class: 'form-control', placeholder: 'Corpo' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :mode, class: 'form-control', placeholder: 'Modo' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :website, class: 'form-control', placeholder: 'Website' %>
+  </div>
+  <div class="form-group">
+    <%= f.collection_select(:genre_ids, Genre.includes(:translations).all, :id, :title, {}, { class: 'form-control', multiple: true, placeholder: 'Genero' }) %>
+  </div>
+  <div class="form-group">
+    <%= f.select :developer_ids, options_for_select(Developer.all.collect { |p| [p.name, p.id] }.sort), {}, { multiple: true, class: 'form-control', placeholder: 'Developer' } %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Index', games_path %>

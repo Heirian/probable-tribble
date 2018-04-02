@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_25_182321) do
+ActiveRecord::Schema.define(version: 2018_03_30_195057) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,88 @@ ActiveRecord::Schema.define(version: 2018_03_25_182321) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "game_id"
+    t.integer "category_id"
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["game_id"], name: "index_articles_on_game_id"
+    t.index ["profile_id"], name: "index_articles_on_profile_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_translations", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["category_id"], name: "index_category_translations_on_category_id"
+    t.index ["locale"], name: "index_category_translations_on_locale"
+  end
+
+  create_table "developers", force: :cascade do |t|
+    t.string "name"
+    t.string "website"
+  end
+
+  create_table "game_developers", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "developer_id"
+    t.index ["developer_id"], name: "index_game_developers_on_developer_id"
+    t.index ["game_id"], name: "index_game_developers_on_game_id"
+  end
+
+  create_table "game_genres", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "genre_id"
+    t.index ["game_id"], name: "index_game_genres_on_game_id"
+    t.index ["genre_id"], name: "index_game_genres_on_genre_id"
+  end
+
+  create_table "game_translations", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "description"
+    t.text "body"
+    t.index ["game_id"], name: "index_game_translations_on_game_id"
+    t.index ["locale"], name: "index_game_translations_on_locale"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "website"
+    t.string "mode"
+    t.datetime "release"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genre_translations", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["genre_id"], name: "index_genre_translations_on_genre_id"
+    t.index ["locale"], name: "index_genre_translations_on_locale"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
