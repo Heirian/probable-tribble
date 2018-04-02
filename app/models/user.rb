@@ -6,8 +6,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
-  validates_format_of :email, with: Devise.email_regexp,
-                              uniqueness: { case_sensitive: false }, allow_nil: true
+  validates :email, format: { with: Devise.email_regexp,
+                              uniqueness: { case_sensitive: false }, allow_nil: true }
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_one :profile, dependent: :nullify
 
