@@ -1,0 +1,14 @@
+<div class="float-right">
+  <%= link_to 'New developer', new_developer_path, class: 'btn btn-primary' %>
+</div>
+<% @developers.each do |developer| %>
+<div class="row">
+  <ul>
+    <li>
+      <%= link_to developer.name, developer.website, target: '_blank' %> -
+      <%= link_to 'Show', developer_path(developer) %> -
+      <%= link_to 'Edit', edit_developer_path(developer) %>
+    </li>
+  </ul>
+</div>
+<% end %>
