@@ -36,12 +36,29 @@ ActiveRecord::Schema.define(version: 2018_03_30_195057) do
   create_table "articles", force: :cascade do |t|
     t.integer "profile_id"
     t.integer "game_id"
+    t.integer "category_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["game_id"], name: "index_articles_on_game_id"
     t.index ["profile_id"], name: "index_articles_on_profile_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_translations", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["category_id"], name: "index_category_translations_on_category_id"
+    t.index ["locale"], name: "index_category_translations_on_locale"
   end
 
   create_table "developers", force: :cascade do |t|
@@ -58,9 +75,9 @@ ActiveRecord::Schema.define(version: 2018_03_30_195057) do
 
   create_table "game_genres", force: :cascade do |t|
     t.integer "game_id"
-    t.integer "genres_id"
+    t.integer "genre_id"
     t.index ["game_id"], name: "index_game_genres_on_game_id"
-    t.index ["genres_id"], name: "index_game_genres_on_genres_id"
+    t.index ["genre_id"], name: "index_game_genres_on_genre_id"
   end
 
   create_table "game_translations", force: :cascade do |t|
