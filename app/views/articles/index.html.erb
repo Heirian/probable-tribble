@@ -1,0 +1,13 @@
+<div class="float-right">
+  <%= link_to 'New article', new_article_path, class: 'btn btn-primary' %>
+</div>
+<% @articles.each do |article| %>
+<div class="row">
+  <ul>
+    <li>
+      <%= link_to article.title, article_path(article) %> -
+      <%= link_to 'Edit', edit_article_path(article) %>
+    </li>
+  </ul>
+</div>
+<% end %>

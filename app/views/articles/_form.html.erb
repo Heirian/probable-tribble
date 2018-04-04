@@ -1,0 +1,19 @@
+<%= form_for(@article, html: { class: 'form-horizontal', role: 'form' }) do |f| %>
+  <div class="form-group">
+    <%= f.text_field :title, class: 'form-control no-border', placeholder: 'Titulo' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :body, class: 'form-control no-border', rows: '8', placeholder: 'Escreve aqui 10 ano' %>
+  </div>
+  <div class="form-group">
+    <%= f.collection_select(:game_id, Game.includes(:translations).all, :id, :title, {}, { class: 'form-control no-border', placeholder: 'Game' }) %>
+  </div>
+  <div class="form-group">
+    <%= f.select :category_id, options_for_select(Category.all.collect { |p| [p.title, p.id] }.sort), {}, { class: 'form-control no-border', placeholder: 'Categoria' } %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<br>
+
+<%= link_to 'Index', articles_path, class: 'btn btn-success' %>
