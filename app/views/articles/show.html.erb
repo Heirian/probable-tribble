@@ -2,7 +2,7 @@
   <%= @article.title %>
 </div>
 <div>
-  <%= @article.body %>
+  <%= sanitize markdown_to_html(@article.body) %>
 </div>
 <div>
 
