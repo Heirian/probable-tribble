@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article.user_id = current_user
+    @article.profile_id = current_user.profile.id
     if @article.save
       flash[:success] = 'Artigo criado'
       redirect_to article_path(@article)
@@ -58,11 +58,11 @@ class ArticlesController < ApplicationController
   end
 
   def ensure_create_article
-    @article = Article.ew(articles_params)
+    @article = Article.new(articles_params)
   end
 
   def articles_params
-    params.require(:category).permit(:title, :body, :profile_id,
-                                     :game_id, :category_id)
+    params.require(:article).permit(:title, :body, :profile_id,
+                                    :game_id, :category_id)
   end
 end
