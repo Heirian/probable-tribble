@@ -33,6 +33,8 @@ gem 'mini_magick', '~> 4.8'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'activemodel-serializers-xml'
 
+gem 'kramdown', '~> 1.16', '>= 1.16.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

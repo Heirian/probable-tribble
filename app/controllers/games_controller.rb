@@ -45,7 +45,7 @@ class GamesController < ApplicationController
   end
 
   def ensure_game
-    @game = Game.includes(:translations, genres: [:translations]).find(ensure_game_id)
+    @game = Game.includes(:translations).find(ensure_game_id)
   end
 
   def ensure_game_id
