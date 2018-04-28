@@ -43,11 +43,7 @@ class DevelopersController < ApplicationController
   end
 
   def ensure_developer
-    @developer = Developer.find(ensure_developer_id)
-  end
-
-  def ensure_developer_id
-    params[:id].to_i
+    @developer = Developer.find(ensure_instance_id)
   end
 
   def ensure_create_developer

@@ -45,11 +45,7 @@ class GamesController < ApplicationController
   end
 
   def ensure_game
-    @game = Game.includes(:translations).find(ensure_game_id)
-  end
-
-  def ensure_game_id
-    params[:id].to_i
+    @game = Game.includes(:translations).find(ensure_instance_id)
   end
 
   def ensure_create_game
