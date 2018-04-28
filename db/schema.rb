@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_30_195057) do
+ActiveRecord::Schema.define(version: 2018_04_05_022112) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,19 @@ ActiveRecord::Schema.define(version: 2018_03_30_195057) do
     t.string "title"
     t.index ["category_id"], name: "index_category_translations_on_category_id"
     t.index ["locale"], name: "index_category_translations_on_locale"
+  end
+
+  create_table "communities", force: :cascade do |t|
+    t.integer "owner_id"
+    t.integer "game_id"
+    t.string "name", null: false
+    t.text "body", null: false
+    t.boolean "require_approval", default: false
+    t.integer "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_communities_on_game_id"
+    t.index ["owner_id"], name: "index_communities_on_owner_id"
   end
 
   create_table "developers", force: :cascade do |t|
@@ -113,6 +126,17 @@ ActiveRecord::Schema.define(version: 2018_03_30_195057) do
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "community_id"
+    t.boolean "approved", default: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_memberships_on_community_id"
+    t.index ["member_id"], name: "index_memberships_on_member_id"
   end
 
   create_table "profiles", force: :cascade do |t|
