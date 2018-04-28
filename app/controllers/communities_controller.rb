@@ -14,9 +14,11 @@ class CommunitiesController < ApplicationController
 
   def create
     @community = Community.new(communities_params)
+    @community.owner = current_profile
     if @community.save
       redirect_to @community
     else
+      flash.now[:error] = @community.errors.full_messages.join(' - ')
       render 'new'
     end
   end
@@ -37,6 +39,10 @@ class CommunitiesController < ApplicationController
 
   def ensure_community
     @community = Community.find(ensure_instance_id)
+  end
+
+  def ensure_communities
+    @communities = Community.where(`true`)
   end
 
   def communities_params
