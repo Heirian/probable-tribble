@@ -2,6 +2,7 @@
 
 # This is the application controller
 class ApplicationController < ActionController::Base
+  include ProfilesHelper
   before_action :set_locale
   before_action :default_url_options
 
