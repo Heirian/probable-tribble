@@ -13,5 +13,7 @@ class Profile < ApplicationRecord
                        uniqueness: { case_sensitive: false }
   validates_with AvatarValidator
 
+  delegate :email, to: :user
+
   enum gender: %i[female male]
 end
