@@ -30,47 +30,58 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  autobio: 'Não tenho bio ainda.'
+  change_password: 'Alterar senha'
+  characters_minimum: "caracteres mínimos"
+  dont_have_an_account?: 'Não tem uma conta?'
+  edit_profile: 'Editar perfil'
+  email_address: 'Endereço de email'
+  en: 'English'
+  language: 'Idioma'
+  female: 'Mulher'
+  forgot_your_password?: "Esqueceu a senha?"
+  gaming_better_slogan: "Aprimore suas habilidades e evolua a comunidade do seu jogo favorito."
+  have_an_account?: "Tem uma conta?"
   hello_word: "Olá mundo"
   login: "Faça login"
   logout: "Sair"
   male: 'Homem'
-  female: 'Mulher'
-  rights_reserved: 'Todos os direitos reservados'
-  autobio: 'Não tenho bio ainda.'
-  sign_up_terms: "Ao cadastrar-se, você concorda com nossos Termos e Política de Privacidade."
-  sign_in: "Entrar"
-  sign_up: "Cadastre-se"
-  have_an_account?: "Tem uma conta?"
-  email_address: 'Endereço de email'
-  password: 'Senha'
   password_confirmation: 'Confirmação da senha'
-  send_reset_instructions: "Redefinir senha"
-  gaming_better_slogan: "Aprimore suas habilidades e evolua a comunidade do seu jogo favorito."
-  characters_minimum: "caracteres mínimos"
-  remember_me: "lembrar-me"
-  forgot_your_password?: "Esqueceu a senha?"
-  dont_have_an_account?: 'Não tem uma conta?'
-  profile: 'Perfil'
-  settings: 'Configurações'
+  password: 'Senha'
   private_information: 'Informações privadas'
-  edit_profile: 'Editar perfil'
-  send: 'Enviar'
+  profile: 'Perfil'
+  pt-BR: 'Português (Brasil)'
+  remember_me: "lembrar-me"
+  rights_reserved: 'Todos os direitos reservados'
   save: 'Salvar'
-  change_password: 'Alterar senha'
+  send_reset_instructions: "Redefinir senha"
+  send: 'Enviar'
+  settings: 'Configurações'
+  sign_in: "Entrar"
+  sign_up_terms: "Ao cadastrar-se, você concorda com nossos Termos e Política de Privacidade."
+  sign_up: "Cadastre-se"
   activerecord:
     attributes:
-      user:
-        password: 'Senha'
-        current_password: 'Senha antiga'
-        password_confirmation: 'Confirme a nova senha'
       profile:
         bio: 'Biografia'
-        username: 'Nome de usuário'
+        birthday: 'Aniverário'
+        gender: 'Sexo'
         name: 'Nome'
         phone: 'Telefone'
-        gender: 'Sexo'
-        birthday: 'Aniverário'
+        username: 'Nome de usuário'
+      user:
+        current_password: 'Senha antiga'
+        password_confirmation: 'Confirme a nova senha'
+        password: 'Senha'
     enums:
+      community:
+        secrecy:
+          common: 'Público'
+          secret: 'Secreto'
+          vip: 'Privado'
+        kind:
+          fun: 'Diversão'
+          strategy: 'Estratégia'
       profile:
         gender:
           female: 'Feminino'
