@@ -6,6 +6,9 @@ class Community < ApplicationRecord
 
   delegate :username, to: :owner
 
+  enum secrecy: %i[vip secret common]
+  enum kind: %i[strategy fun]
+
   def game_title
     game.title
   end
