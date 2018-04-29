@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_04_05_022112) do
     t.text "body", null: false
     t.boolean "require_approval", default: false
     t.integer "kind"
+    t.integer "secrecy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_communities_on_game_id"
