@@ -1,0 +1,23 @@
+<div class="col-md-3">
+  <hr class="my-3">
+  <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-muted">Personal settings</span>
+  </h4>
+  <div class="list-group list-group-flush mb-3">
+    <h6 class="my-0">
+      <%= link_to 'Profile', edit_profile_path(current_profile), class: "list-group-item list-group-item-action d-flex justify-content-between lh-condensed #{active_font_weight_bold('profiles', 'edit')}" %>
+    </h6>
+    <h6 class="my-0">
+      <%= link_to 'Account', edit_user_path, class: "list-group-item list-group-item-action d-flex justify-content-between lh-condensed #{active_font_weight_bold('users', 'edit')}" %>
+    </h6>
+    <h6 class="my-0">
+      <%= link_to 'Email', '#', class: 'list-group-item list-group-item-action d-flex justify-content-between lh-condensed'%>
+    </h6>
+    <h6 class="my-0">
+      <%= link_to 'Privacy and Security', '#', class: 'list-group-item list-group-item-action d-flex justify-content-between lh-condensed' %>
+    </h6>
+    <h6 class="my-0">
+      <%= link_to 'Blocked users', '#', class: 'list-group-item list-group-item-action d-flex justify-content-between lh-condensed' %>
+    </h6>
+  </div>
+</div>
