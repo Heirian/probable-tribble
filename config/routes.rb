@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     resources :games, except: [:destroy]
     resources :categories, except: [:destroy]
     resources :articles
-    resources :communities
+    resources :communities do
+      member do
+        get :pending_members, :members
+      end
+    end
     resources :memberships, only: %i[create update destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
