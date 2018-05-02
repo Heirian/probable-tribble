@@ -1,8 +1,7 @@
 <div class="row">
-  <div class="col-md-2">
+  <%= render partial: 'shared/settings_side_bar' %>
 
-  </div>
-  <div class="col-md-8 offset-md-2">
+  <div class="col-md-9">
     <hr class="my-3">
 
     <!-- form user info -->
@@ -17,63 +16,63 @@
         <%= form_for(@profile, url: { action: :update }, html: { role: 'form', autocomplete: false } ) do |f| %>
         <div class="form-group row">
           <%= f.label :avatar, class: 'col-lg-3 col-form-label form-control-label' %>
-          <div class="col-lg-9">
+          <div class="col-lg-6">
             <%= f.file_field :avatar, class: 'form-control' %>
           </div>
         </div>
           <div class="form-group row">
             <%= f.label :name, class: 'col-lg-3 col-form-label form-control-label' %>
-            <div class="col-lg-9">
+            <div class="col-lg-6">
               <%= f.text_field :name, class: 'form-control' %>
             </div>
           </div>
           <div class="form-group row">
             <%= f.label :username, class: 'col-lg-3 col-form-label form-control-label' %>
-            <div class="col-lg-9">
+            <div class="col-lg-6">
               <%= f.text_field :username, class: 'form-control', require: '' %>
             </div>
           </div>
           <div class="form-group row">
             <%= f.label :bio, class: 'col-lg-3 col-form-label form-control-label' %>
-            <div class="col-lg-9">
-              <%= f.text_area :bio, rows: 2, class: 'form-control', require: '' %>
+            <div class="col-lg-6">
+              <%= f.text_area :bio, rows: 3, class: 'form-control', require: '' %>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label form-control-label"></label>
-            <div class="col-lg-9">
+            <div class="col-lg-6">
               <%= t(:private_information) %>
             </div>
           </div>
           <%= f.fields_for :user do |ff| %>
             <div class="form-group row">
               <%= ff.label :email, class: 'col-lg-3 col-form-label form-control-label' %>
-              <div class="col-lg-9">
+              <div class="col-lg-6">
                 <%= ff.text_field :email, class: 'form-control', require: '' %>
               </div>
             </div>
           <% end %>
           <div class="form-group row">
             <%= f.label :phone, class: 'col-lg-3 col-form-label form-control-label' %>
-            <div class="col-lg-9">
+            <div class="col-lg-6">
               <%= f.text_field :phone, class: 'form-control', require: '' %>
             </div>
           </div>
           <div class="form-group row">
             <%= f.label :gender, class: 'col-lg-3 col-form-label form-control-label' %>
-            <div class="col-lg-9">
+            <div class="col-lg-6">
               <%= f.select :gender, options_for_enum(@profile, :gender), {}, { class: 'form-control', size: 0 } %>
             </div>
           </div>
           <div class="form-group row">
             <%= f.label :birthday, class: 'col-lg-3 col-form-label form-control-label' %>
-            <div class="col-lg-9">
+            <div class="col-lg-6">
               <%= f.text_field :birthday, class: "form-control"  %>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label form-control-label"></label>
-            <div class="col-lg-9">
+            <div class="col-lg-6">
               <%= f.submit(t(:save), class: 'btn btn-dark') %>
             </div>
           </div>
