@@ -1,0 +1,7 @@
+<%= form_for(current_profile.memberships.where(community_id: @community.id).first,
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= button_tag type: 'submit', class: "btn btn-following", title: t(:Wanted_explanation) do %>
+    <i class="fa fa-check-square-o" aria-hidden="true" title="<%= t(:following) %>"></i> <%= t(:Wanted) %>
+  <% end %>
+<% end %>

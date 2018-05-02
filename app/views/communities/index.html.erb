@@ -1,0 +1,13 @@
+<div class="float-right">
+  <%= link_to 'New community', new_community_path, class: 'btn btn-primary' %>
+</div>
+<% @communities.each do |community| %>
+<div class="row">
+  <ul>
+    <li>
+      <%= link_to community.name, community_path(community) %> -
+      <%= link_to 'Edit', edit_community_path(community) %>
+    </li>
+  </ul>
+</div>
+<% end %>

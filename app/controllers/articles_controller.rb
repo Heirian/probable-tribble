@@ -50,11 +50,7 @@ class ArticlesController < ApplicationController
   private
 
   def ensure_article
-    @article = Article.find(ensure_article_id)
-  end
-
-  def ensure_article_id
-    params[:id].to_i
+    @article = Article.find(ensure_instance_id)
   end
 
   def ensure_create_article

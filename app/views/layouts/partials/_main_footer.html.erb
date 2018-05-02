@@ -1,7 +1,19 @@
 <footer class="footer">
-  <div class="container">
-    <span class="text-muted text-right">© • <%= current_year %> • <%= application_title.upcase %></span>
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <span class="text-muted text-right py-0">© • <%= current_year %> • <%= application_title.upcase %></span>
+      <ul class="navbar-nav my-2 my-lg-0 py-0">
+        <li class="nav-item dropup">
+          <a class="nav-link" href="#" id="dropup-bottom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t(:language).upcase %></a>
+          <div class="dropdown-menu" aria-labelledby="dropup-bottom">
+            <% available_locales.each do |locale| %>
+              <%= link_to t(locale), { locale: locale }, class: 'dropdown-item' %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </footer>
 
 <%= stylesheet_link_tag 'sticky_footer', media: 'all' %>

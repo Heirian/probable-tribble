@@ -1,0 +1,26 @@
+<%= @community.name %>
+<br>
+<%= @community.body %>
+<br>
+<%= @community.username %>
+<br>
+<%= @community.game_title %>
+<br>
+<%= @community.require_approval %>
+<br>
+<%= link_to 'Index', communities_path, class: 'btn btn-success' %>
+<ul>
+  <% @community.members.each do |member| %>
+    <li><%= member.username %>
+  <% end %>
+</ul>
+
+<%= render partial: 'membership' %>
+
+-
+<% if @community.manager?(current_profile) %>
+  <%= @community.pending_members.count %>
+  <%= link_to 'pending_members', pending_members_community_path(@community) %>
+<% end %>
+
+<%= link_to 'members', members_community_path(@community) %>

@@ -14,4 +14,8 @@ module ApplicationHelper
   def current_year
     Time.zone.today.year
   end
+
+  def available_locales
+    I18n.available_locales
+  end
 end

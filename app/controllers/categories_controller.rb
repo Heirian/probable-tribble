@@ -43,11 +43,7 @@ class CategoriesController < ApplicationController
   end
 
   def ensure_category
-    @category = Category.includes(:translations).find(ensure_category_id)
-  end
-
-  def ensure_category_id
-    params[:id].to_i
+    @category = Category.includes(:translations).find(ensure_instance_id)
   end
 
   def categories_params

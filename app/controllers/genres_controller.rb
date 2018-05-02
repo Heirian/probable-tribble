@@ -43,11 +43,7 @@ class GenresController < ApplicationController
   end
 
   def ensure_genre
-    @genre = Genre.includes(:translations).find(ensure_genre_id)
-  end
-
-  def ensure_genre_id
-    params[:id].to_i
+    @genre = Genre.includes(:translations).find(ensure_instance_id)
   end
 
   def genres_params
