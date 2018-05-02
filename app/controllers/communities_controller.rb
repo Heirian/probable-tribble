@@ -35,6 +35,10 @@ class CommunitiesController < ApplicationController
 
   def destroy; end
 
+  def pending_members; end
+
+  def members; end
+
   private
 
   def ensure_community
