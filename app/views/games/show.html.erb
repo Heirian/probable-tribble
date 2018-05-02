@@ -4,3 +4,4 @@
   <%= genre.title %>
 <% end %>
 <%= link_to 'Index', games_path %>
+<%= link_to 'New community', new_community_path(game_id: @game.id), class: 'btn btn-primary' %>
