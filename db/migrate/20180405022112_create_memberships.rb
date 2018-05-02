@@ -3,8 +3,8 @@ class CreateMemberships < ActiveRecord::Migration[5.2]
     create_table :memberships do |t|
       t.references :member
       t.references :community
-      t.boolean :approved, default: false
-      t.integer :status
+      t.boolean :approved, default: false, null: false
+      t.integer :status, default: 0, null: false
 
       t.timestamps
     end

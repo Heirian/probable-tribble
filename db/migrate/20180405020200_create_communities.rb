@@ -6,8 +6,8 @@ class CreateCommunities < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.text :body, null: false
       t.boolean :require_approval, default: false
-      t.integer :kind
-      t.integer :secrecy
+      t.integer :kind, default: 0, null: false
+      t.integer :secrecy, default: 0, null: false
 
       t.timestamps
     end

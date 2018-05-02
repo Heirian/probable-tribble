@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 2018_04_05_022112) do
     t.string "name", null: false
     t.text "body", null: false
     t.boolean "require_approval", default: false
-    t.integer "kind"
-    t.integer "secrecy"
+    t.integer "kind", default: 0, null: false
+    t.integer "secrecy", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_communities_on_game_id"
@@ -132,8 +132,8 @@ ActiveRecord::Schema.define(version: 2018_04_05_022112) do
   create_table "memberships", force: :cascade do |t|
     t.integer "member_id"
     t.integer "community_id"
-    t.boolean "approved", default: false
-    t.integer "status"
+    t.boolean "approved", default: false, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_memberships_on_community_id"
