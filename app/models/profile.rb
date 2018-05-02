@@ -4,7 +4,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_many :articles
-  has_many :memberships
+  has_many :memberships, foreign_key: "member_id"
   has_many :communities, foreign_key: :owner_id
   has_many :community_memberships, through: :memberships, source: :member
   accepts_nested_attributes_for :user
@@ -16,4 +16,12 @@ class Profile < ApplicationRecord
   delegate :email, to: :user
 
   enum gender: %i[female male]
+
+  def join(community)
+    community.members << self
+  end
+
+  def leave(community)
+    community.members.delete(self)
+  end
 end
