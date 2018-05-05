@@ -49,13 +49,8 @@
           <% end %>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link py-0" href="#" id="nav-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= gravatar_for(current_user, size: 30, class: 'avatar') %>
-          </a>
+          <%= link_to gravatar_for(current_user, size: 30, class: 'avatar'), profile_path(current_profile), class: 'nav-link py-0' %>
           <div class="dropdown-menu" aria-labelledby="nav-dropdown">
-            <%= link_to(profile_path(current_profile), class: 'dropdown-item') do %>
-              <i class="fas fa-user-circle"></i> <%= t(:profile) %>
-            <% end %>
             <%= link_to(edit_profile_path(current_profile), class: 'dropdown-item') do %>
               <i class="fas fa-cogs"></i> <%= t(:settings) %>
             <% end %>
