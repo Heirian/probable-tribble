@@ -59,9 +59,6 @@
             <%= link_to(edit_profile_path(current_profile), class: 'dropdown-item') do %>
               <i class="fas fa-cogs"></i> <%= t(:settings) %>
             <% end %>
-            <%= link_to(edit_user_path, class: 'dropdown-item') do %>
-              <i class="fas fa-cogs"></i> <%= t(:password) %>
-            <% end %>
             <%= link_to(destroy_user_session_path, method: :delete, class: 'dropdown-item py-0') do %>
               <i class="fas fa-sign-out-alt"></i> <%= t(:logout) %>
             <% end %>
