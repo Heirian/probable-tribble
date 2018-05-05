@@ -8,3 +8,11 @@ body {
   min-height: 50rem;
   padding-top: 4.5rem;
 }
+
+.dropdown-menu {
+  margin: 0;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
