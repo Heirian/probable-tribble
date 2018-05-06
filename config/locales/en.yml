@@ -68,6 +68,9 @@ en:
   pending:
     one: 'Pending'
     other: 'Pendings'
+  request:
+    one: 'Request'
+    two: 'Requests'
   activerecord:
     enums:
       community:
