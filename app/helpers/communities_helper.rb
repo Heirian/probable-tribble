@@ -22,6 +22,10 @@ module CommunitiesHelper
     community.member?(current_profile) ? 'leave' : 'join'
   end
 
+  def membership(member, community)
+    member.membership(community)
+  end
+
   def member_since(member, community)
     time_ago_in_words(membership(member, community).created_at)
   end
