@@ -24,6 +24,14 @@ class Community < ApplicationRecord
     members.where(memberships: { approved: true })
   end
 
+  def accepted_members_quantity
+    accepted_members.count
+  end
+
+  def random_accepted_members(quantity)
+    accepted_members.order('random()').last(quantity)
+  end
+
   def pending_members
     members.where(memberships: { approved: false })
   end
