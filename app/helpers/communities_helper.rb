@@ -22,6 +22,10 @@ module CommunitiesHelper
     community.member?(current_profile) ? 'leave' : 'join'
   end
 
+  def join_time_in_words(member, community)
+    t(:join, count: 2) + ' ' + member_since(member, community) + ' ' + t(:ago)
+  end
+
   def membership(member, community)
     member.membership(community)
   end
