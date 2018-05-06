@@ -70,7 +70,7 @@ en:
     other: 'Pendings'
   request:
     one: 'Request'
-    two: 'Requests'
+    other: 'Requests'
   activerecord:
     enums:
       community:
