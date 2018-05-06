@@ -1,6 +1,6 @@
 .nav-icon {
   font-size: 30px;
-  color: white;
+  color: rgb(70,70,70);
   line-height: 0;
 }
 
@@ -15,4 +15,8 @@ body {
 
 .dropdown:hover > .dropdown-menu {
   display: block;
+}
+
+.navbar-trans {
+  background: transparent;
 }
