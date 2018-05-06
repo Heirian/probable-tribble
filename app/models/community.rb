@@ -4,6 +4,9 @@ class Community < ApplicationRecord
   has_many :memberships
   has_many :members, through: :memberships
 
+  has_many_attached :avatar
+  validates_with AvatarValidator
+
   delegate :username, to: :owner
 
   enum secrecy: %i[common vip secret]
