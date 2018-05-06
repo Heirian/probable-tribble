@@ -24,4 +24,8 @@ class Profile < ApplicationRecord
   def leave(community)
     community.members.delete(self)
   end
+
+  def membership(community)
+    memberships.where(community_id: community.id).first
+  end
 end
