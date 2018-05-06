@@ -71,7 +71,7 @@ class Community < ApplicationRecord
   private
 
   def manager_status
-    ['administrator', 'moderator']
+    %w(administrator moderator)
   end
 
   def owner_membership
