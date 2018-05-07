@@ -1,7 +1,9 @@
-<%= form_for(current_profile.memberships.where(community_id: @community.id).first,
+<%= form_for(membership(current_profile, @community),
              html: { method: :delete },
              remote: true) do |f| %>
-  <%= button_tag type: 'submit', class: "btn btn-following", title: t(:Wanted_explanation) do %>
-    <i class="fa fa-check-square-o" aria-hidden="true" title="<%= t(:following) %>"></i> <%= t(:Wanted) %>
+  <%= button_tag type: 'submit', class: "btn btn-secondary joined-community p-2", title: t(:joined) do %>
+    <i class="fas fa-check-square"></i> <%= t(:joined) %>
   <% end %>
 <% end %>
+
+<%= javascript_include_tag 'community/hover_button_transition' %>
