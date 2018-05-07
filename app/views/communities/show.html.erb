@@ -1,20 +1,4 @@
-<div class="jumbotron">
-  <div class="text-center">
-    <%= community_avatar(@community, size: 72, class: 'd-block mx-auto') %>
-    <h2 class="display-4">
-      <%= @community.name %>
-    </h2>
-    <p class="lead">
-      <%= @community.body %>
-    </p>
-    <div class="position-relative">
-      <div class="position-absolute zero-right">
-        <%= render partial: 'membership' %>
-      </div>
-      <%= link_to @community.game_title, game_path(@community.game), class: 'p-2 d-flex justify-content-center' %>
-    </div>
-  </div>
-</div>
+<%= render 'cover' %>
 
 <div class="row">
   <div class="col-md-4 order-md-2 mb-4">
@@ -42,7 +26,7 @@
 
     <form class="card p-2 mb-3">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Insira nome ou email">
+        <input type="text" class="form-control" placeholder="<%= t(:enter_name_or_email_address) %>">
         <div class="input-group-append">
           <button type="submit" class="btn btn-secondary">
             <%= t(:recruit) %>
@@ -83,7 +67,5 @@
     </h4>
   </div>
 </div>
-
-
 
 <%= stylesheet_link_tag 'grid_display', media: 'all' %>
