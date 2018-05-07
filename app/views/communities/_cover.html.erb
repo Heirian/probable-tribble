@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <div class="text-center">
+    <%= community_avatar(@community, size: 72, class: 'd-block mx-auto') %>
+    <h2 class="display-4">
+      <%= link_to @community.name, community_path(@community) %>
+    </h2>
+    <p class="lead">
+      <%= @community.body %>
+    </p>
+    <div class="position-relative">
+      <div class="position-absolute zero-right">
+        <%= render partial: 'membership' %>
+      </div>
+      <%= link_to @community.game_title, game_path(@community.game), class: 'p-2' %>
+    </div>
+  </div>
+</div>

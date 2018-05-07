@@ -1,63 +1,40 @@
-<% @community.managers_members.includes(:user, :avatar_attachments).each do |member| %>
-  <div class="row">
-    <%= gravatar_for(member.user, size: 50, class: 'avatar') %>
-    <h5 class="card-title my-auto ml-2"><%= member.username %></h5>
-  </div>
-<% end %>
+<%= render 'cover' %>
 
-<hr class="my-3">
-<div class="list-group list-group-flush">
-  <% @community.accepted_members.includes(:user, :avatar_attachments).each do |member| %>
-  <h6 class="my-0">
-    <li class="list-group-item d-flex justify-content-between lh-condensed">
-      <div class="d-flex w-100 justify-content-between">
-        <div class="row">
-          <%= gravatar_for(member.user, size: 50, class: 'avatar') %>
-          <h5 class="card-title my-auto ml-2"><%= link_to member.username, profile_path(member) %></h5>
-        </div>
-        <% membership = member.memberships.where(community_id: @community.id).first %>
-        <div class="dropdown">
-          <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <% if member != @community.owner %>
-              <%= form_for(membership,
-                           html: { class: 'form-row', method: :delete },
-                           remote: true) do |f| %>
-                <%= button_tag type: 'submit', class: "dropdown-item", title: t(:Wanted_explanation) do %>
-                  <i class="fas fa-times" aria-hidden="true" title="<%= 'Decline' %>"></i> <%= 'Remove from group' %>
-                <% end %>
-              <% end %>
-            <% end %>
-            <% if membership.status != 'administrator' %>
-              <%= form_for(membership, html: { class: 'form-row' }, remote: true) do |f| %>
-                <%= button_tag type: 'submit', class: "dropdown-item", title: t(:Wanted_explanation) do %>
-                  <%= f.hidden_field :status, value: 'administrator' %>
-                  <i class="fas fa-check" aria-hidden="true" title="<%= 'Approve' %>"></i> <%= 'Make Admin' %>
-                <% end %>
-              <% end %>
-            <% end %>
-            <% if membership.status != 'moderator' && member != @community.owner %>
-              <%= form_for(membership, html: { class: 'form-row' }, remote: true) do |f| %>
-                <%= button_tag type: 'submit', class: "dropdown-item", title: t(:Wanted_explanation) do %>
-                  <%= f.hidden_field :status, value: 'moderator' %>
-                  <i class="fas fa-check" aria-hidden="true" title="<%= 'Approve' %>"></i> <%= 'Make Moderator' %>
-                <% end %>
-              <% end %>
-            <% end %>
-            <% if @community.manager?(member) && member != @community.owner %>
-              <%= form_for(membership, html: { class: 'form-row' }, remote: true) do |f| %>
-                <%= button_tag type: 'submit', class: "dropdown-item", title: t(:Wanted_explanation) do %>
-                  <%= f.hidden_field :status, value: 'common' %>
-                  <i class="fas fa-check" aria-hidden="true" title="<%= 'Approve' %>"></i> <%= 'Revoke manager access' %>
-                <% end %>
-              <% end %>
-            <% end %>
+<div class="row">
+  <div class="col-md-8">
+    <h4 class="mb-3">
+      <%= t(:member, count: 2) %>
+    </h4>
+  </div>
+
+  <div class="list-group list-group-flush my-3 col-12">
+    <% @community.accepted_members.includes(:user, :avatar_attachments).each do |member| %>
+    <h6 class="my-0">
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div class="d-flex w-100 justify-content-between">
+          <div class="row">
+            <%= gravatar_for(member.user, size: 50, class: 'avatar') %>
+            <h5 class="card-title my-auto ml-2">
+              <%= link_to member.username, profile_path(member) %>
+            </h5>
           </div>
+          <% if member != @community.owner %>
+            <% membership = membership(member, @community) %>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= render 'memberships/remove', membership: membership %>
+                <%= render 'memberships/update', membership: membership, status: 'administrator', message: 'Make Admin' unless membership.administrator?  %>
+                <%= render 'memberships/update', membership: membership, status: 'moderator', message: 'Make Moderator' unless membership.moderator? %>
+                <%= render 'memberships/update', membership: membership, status: 'common', message: 'revoke manager access' if @community.manager?(member) %>
+              </div>
+            </div>
+          <% end %>
         </div>
-      </div>
-    </li>
-  </h6>
-  <% end %>
+      </li>
+    </h6>
+    <% end %>
+  </div>
 </div>

@@ -13,7 +13,7 @@ class Profile < ApplicationRecord
                        uniqueness: { case_sensitive: false }
   validates_with AvatarValidator
 
-  delegate :email, to: :user
+  delegate :email, :current_sign_in_at, to: :user
 
   enum gender: %i[female male]
 
@@ -23,5 +23,9 @@ class Profile < ApplicationRecord
 
   def leave(community)
     community.members.delete(self)
+  end
+
+  def membership(community)
+    memberships.where(community_id: community.id).first
   end
 end

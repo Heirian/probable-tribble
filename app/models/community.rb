@@ -4,6 +4,9 @@ class Community < ApplicationRecord
   has_many :memberships
   has_many :members, through: :memberships
 
+  has_many_attached :avatar
+  validates_with AvatarValidator
+
   delegate :username, to: :owner
 
   enum secrecy: %i[common vip secret]
@@ -21,8 +24,28 @@ class Community < ApplicationRecord
     members.where(memberships: { approved: true })
   end
 
+  def accepted_members_quantity
+    accepted_members.count
+  end
+
+  def random_accepted_members(quantity)
+    accepted_members.order('random()').last(quantity)
+  end
+
   def pending_members
     members.where(memberships: { approved: false })
+  end
+
+  def pending_members?
+    pending_members.any?
+  end
+
+  def pending_members_quantity
+    pending_members.count
+  end
+
+  def random_pending_members(quantity)
+    pending_members.order('random()').last(quantity)
   end
 
   def managers_members
@@ -48,7 +71,7 @@ class Community < ApplicationRecord
   private
 
   def manager_status
-    ['administrator', 'moderator']
+    %w(administrator moderator)
   end
 
   def owner_membership

@@ -1,0 +1,6 @@
+<%= form_for(membership, html: { class: 'form-row' }, remote: true) do |f| %>
+  <%= button_tag type: 'submit', class: "dropdown-item", title: message do %>
+    <%= f.hidden_field :status, value: status %>
+    <i class="fas fa-check" aria-hidden="true"></i> <%= message %>
+  <% end %>
+<% end %>

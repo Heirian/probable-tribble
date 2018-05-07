@@ -30,33 +30,48 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  autobio: 'I don"t have bio.'
-  characters_minimum: "characters minimum"
+  ago: 'ago'
+  autobio: "I don't have bio."
+  characters_minimum: 'characters minimum'
   dont_have_an_account?: "Don't have an account?"
   email_address: 'Email address'
   en: 'English'
+  enter_name_or_email_address: 'Enter name or email address'
   female: 'Female'
-  forgot_your_password?: "Forgot your password?"
-  gaming_better_slogan: "Enhance your skills and evolve the community of your favorite game."
-  have_an_account?: "Have an account?"
-  hello_word: "Hello world"
+  forgot_your_password?: 'Forgot your password?'
+  gaming_better_slogan: 'Enhance your skills and evolve the community of your favorite game.'
+  have_an_account?: 'Have an account?'
+  hello_word: 'Hello world'
   language: 'Language'
-  login: "Log in"
-  logout: "Logout"
+  login: 'Log in'
+  logout: 'Logout'
   male: 'Male'
   password_confirmation: 'Password confirmation'
   password: 'Password'
   profile: 'Profile'
   pt-BR: 'Português (Brasil)'
-  remember_me: "remember me"
+  recruit: 'Recruit'
+  remember_me: 'remember me'
   rights_reserved: 'All rights reserved'
   save: 'Save'
-  send_reset_instructions: "Send me reset password instructions"
+  send_reset_instructions: 'Send me reset password instructions'
   send: 'Send'
   settings: 'Settings'
-  sign_in: "Sign in"
-  sign_up_terms: "By signing up, you agree to our Terms & Privacy Policy."
-  sign_up: "Sign up"
+  sign_in: 'Sign in'
+  sign_up_terms: 'By signing up, you agree to our Terms & Privacy Policy.'
+  sign_up: 'Sign up'
+  activity:
+    one: 'Activity'
+    other: 'Activities'
+  member:
+    one: 'Member'
+    other: 'Members'
+  pending:
+    one: 'Pending'
+    other: 'Pendings'
+  request:
+    one: 'Request'
+    other: 'Requests'
   activerecord:
     enums:
       community:

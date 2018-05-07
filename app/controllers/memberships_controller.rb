@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MembershipsController < ApplicationController
+  before_action :ensure_membership, only: %i[update destroy]
+
   def create
     @community = Community.find(params[:community_id])
     current_profile.join(@community)
@@ -8,13 +10,11 @@ class MembershipsController < ApplicationController
   end
 
   def update
-    @membership = Membership.find(params[:id])
     @membership.update(membership_params)
     redirect_to @membership.community
   end
 
   def destroy
-    @membership = Membership.find(params[:id])
     @community = @membership.community
     @membership.member.leave(@community)
     redirect_to @community
@@ -24,5 +24,9 @@ class MembershipsController < ApplicationController
 
   def membership_params
     params.require(:membership).permit(:approved, :status)
+  end
+
+  def ensure_membership
+    @membership = Membership.find(ensure_instance_id)
   end
 end

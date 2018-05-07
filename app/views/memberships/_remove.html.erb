@@ -1,0 +1,5 @@
+<%= form_for(membership, html: { class: 'form-row', method: :delete }, remote: true) do |f| %>
+  <%= button_tag type: 'submit', class: "dropdown-item", title: 'Remove from group' do %>
+    <i class="fas fa-times" aria-hidden="true"></i> <%= 'Remove from group' %>
+  <% end %>
+<% end %>
