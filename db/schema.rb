@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2018_04_05_022112) do
     t.string "name", null: false
     t.text "body", null: false
     t.boolean "require_approval", default: false
+    t.boolean "membership_approval", default: false
     t.integer "kind", default: 0, null: false
     t.integer "secrecy", default: 0, null: false
     t.datetime "created_at", null: false
