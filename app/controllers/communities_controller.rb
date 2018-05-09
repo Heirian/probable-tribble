@@ -4,6 +4,7 @@ class CommunitiesController < ApplicationController
   before_action :ensure_communities, only: :index
   before_action :ensure_community, except: %i[index new create]
   before_action :ensure_member, except: %i[index new create show]
+  before_action :ensure_manager_profile, only: %i[edit update]
   before_action :ensure_owner, only: :destroy
 
   def index; end
@@ -54,6 +55,10 @@ class CommunitiesController < ApplicationController
 
   def ensure_communities
     @communities = Community.where(`true`)
+  end
+
+  def ensure_manager_profile
+    redirect_to_community unless @community.manager?(current_profile)
   end
 
   def ensure_member
