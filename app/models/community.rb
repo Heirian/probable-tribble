@@ -72,6 +72,10 @@ class Community < ApplicationRecord
     memberships.where(member_id: profile.id).last
   end
 
+  def owner?(profile)
+    owner == profile
+  end
+
   private
 
   def manager_status
