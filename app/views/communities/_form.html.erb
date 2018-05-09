@@ -1,12 +1,12 @@
 <%= form_for(@community, html: { class: 'form-horizontal', role: 'form' }) do |f| %>
   <div class="form-group">
-    <%= f.text_field :name, class: 'form-control', placeholder: 'Nome' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Nome', required: :required %>
   </div>
   <div class="form-group">
-    <%= f.text_area :body, class: 'form-control no-border', rows: '8', placeholder: 'Escreve aqui 10 ano' %>
+    <%= f.text_area :body, class: 'form-control no-border', rows: '8', placeholder: 'Escreve aqui 10 ano', required: :required %>
   </div>
   <div class="form-group">
-    <%= f.collection_select(:game_id, Game.includes(:translations).all, :id, :title, {selected: params[:game_id].presence || @community.game_id}, { class: 'form-control no-border', placeholder: 'Game' }) %>
+    <%= f.collection_select(:game_id, Game.includes(:translations).all, :id, :title, { selected: params[:game_id].presence || @community.game_id }, { class: 'form-control no-border', placeholder: 'Game' }) %>
   </div>
   <div class="form-group">
     <%= f.select :secrecy, options_for_enum(@community, :secrecy), {}, { class: 'form-control', size: 0 } %>
@@ -18,9 +18,17 @@
     <%= f.label :require_approval %>
     <%= f.check_box :require_approval %>
   </div>
+  <div id='membership_approval' class="form-group">
+    <%= f.label :membership_approval %>
+    Anyone in the group
+    <%= f.radio_button :membership_approval, false, checked: true %>
+    Only admins and moderators
+    <%= f.radio_button :membership_approval, true %>
+  </div>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
 
 <br>
 
 <%= link_to 'Index', communities_path, class: 'btn btn-success' %>
+<%= javascript_include_tag 'community/membership_approval_toggle' %>
