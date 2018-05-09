@@ -53,4 +53,8 @@ class CommunitiesController < ApplicationController
   def ensure_communities
     @communities = Community.where(`true`)
   end
+
+  def redirect_to_community
+    redirect_to @community
+  end
 end
