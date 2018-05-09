@@ -5,6 +5,7 @@ class CommunitiesController < ApplicationController
   before_action :ensure_community, except: %i[index new create]
   before_action :ensure_member, except: %i[index new create show]
   before_action :ensure_manager_profile, only: %i[edit update]
+  before_action :ensure_managers_approval, only: :pending_members
   before_action :ensure_owner, only: :destroy
 
   def index; end
@@ -55,6 +56,10 @@ class CommunitiesController < ApplicationController
 
   def ensure_communities
     @communities = Community.where(`true`)
+  end
+
+  def ensure_managers_approval
+    ensure_manager_profile if @community.require_managers_approval?
   end
 
   def ensure_manager_profile
