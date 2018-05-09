@@ -41,16 +41,16 @@ class CommunitiesController < ApplicationController
 
   private
 
+  def communities_params
+    params.require(:community).permit(:name, :body, :kind, :require_approval,
+                                      :owner_id, :game_id, :membership_approval)
+  end
+
   def ensure_community
     @community = Community.find(ensure_instance_id)
   end
 
   def ensure_communities
     @communities = Community.where(`true`)
-  end
-
-  def communities_params
-    params.require(:community).permit(:name, :body, :kind, :require_approval,
-                                      :owner_id, :game_id, :membership_approval)
   end
 end
