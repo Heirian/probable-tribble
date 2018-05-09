@@ -56,6 +56,10 @@ class Community < ApplicationRecord
     members.include?(profile)
   end
 
+  def require_managers_approval?
+    membership_approval
+  end
+
   def manager?(profile)
     accepted_member?(profile) && manager_status?(profile)
   end
@@ -66,6 +70,10 @@ class Community < ApplicationRecord
 
   def membership(profile)
     memberships.where(member_id: profile.id).last
+  end
+
+  def owner?(profile)
+    owner == profile
   end
 
   private

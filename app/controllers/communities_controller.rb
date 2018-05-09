@@ -3,6 +3,10 @@
 class CommunitiesController < ApplicationController
   before_action :ensure_communities, only: :index
   before_action :ensure_community, except: %i[index new create]
+  before_action :ensure_member, except: %i[index new create show]
+  before_action :ensure_manager_profile, only: %i[edit update]
+  before_action :ensure_managers_approval, only: :pending_members
+  before_action :ensure_owner, only: :destroy
 
   def index; end
 
@@ -41,6 +45,11 @@ class CommunitiesController < ApplicationController
 
   private
 
+  def communities_params
+    params.require(:community).permit(:name, :body, :kind, :require_approval,
+                                      :owner_id, :game_id, :membership_approval)
+  end
+
   def ensure_community
     @community = Community.find(ensure_instance_id)
   end
@@ -49,8 +58,23 @@ class CommunitiesController < ApplicationController
     @communities = Community.where(`true`)
   end
 
-  def communities_params
-    params.require(:community).permit(:name, :body, :kind, :require_approval,
-                                      :owner_id, :game_id)
+  def ensure_managers_approval
+    ensure_manager_profile if @community.require_managers_approval?
+  end
+
+  def ensure_manager_profile
+    redirect_to_community unless @community.manager?(current_profile)
+  end
+
+  def ensure_member
+    redirect_to_community unless @community.accepted_member?(current_profile)
+  end
+
+  def ensure_owner
+    redirect_to_community unless @community.owner?(current_profile)
+  end
+
+  def redirect_to_community
+    redirect_to @community
   end
 end
