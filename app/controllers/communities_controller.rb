@@ -3,6 +3,7 @@
 class CommunitiesController < ApplicationController
   before_action :ensure_communities, only: :index
   before_action :ensure_community, except: %i[index new create]
+  before_action :ensure_owner, only: :destroy
 
   def index; end
 
@@ -52,6 +53,10 @@ class CommunitiesController < ApplicationController
 
   def ensure_communities
     @communities = Community.where(`true`)
+  end
+
+  def ensure_owner
+    redirect_to_community unless @community.owner?(current_profile)
   end
 
   def redirect_to_community
