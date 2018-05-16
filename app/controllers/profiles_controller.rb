@@ -2,12 +2,17 @@
 
 # This is the profiles controller which controls the profiles pages
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :ensure_profile, except: [:index]
 
   def index; end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.json { render json: { profile: Profiles::ShowPresenter.new(@profile).to_json, avatar: avatar_url } }
+    end
+  end
 
   def edit; end
 
