@@ -33,4 +33,8 @@ class ProfilesController < ApplicationController
                                     :username, :bio, :phone,
                                     :birthday, user_attributes: %i[id email])
   end
+
+  def avatar_url
+    @profile.main_avatar.present? ? url_for(@profile.main_avatar) : ActionController::Base.helpers.asset_path('profile-cover.jpg')
+  end
 end
