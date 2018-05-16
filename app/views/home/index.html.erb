@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-lg-3">
-    <div class="card ml-0" style="width: auto;">
+    <div class="card ml-0 text-center" style="width: auto;">
       <img class="card-img-top" src=" <%= asset_path('profile-cover.jpg') %>" alt="">
       <div class="card-body">
         <%= gravatar_for(current_user, size: 90, class: 'profile-img rounded mx-auto d-block rounded-circle') %>
         <br>
-        <p class="card-text bruno text-center"><%= current_profile.name %></p>
-        <p class="card-text softdeve text-center"><%= current_profile.bio %></p>
+        <h5 class="card-title"><%= current_profile.name %></h5>
+        <p class="card-text"><%= current_profile.bio %></p>
       </div>
     </div>
 

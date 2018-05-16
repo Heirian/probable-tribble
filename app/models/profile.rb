@@ -17,6 +17,14 @@ class Profile < ApplicationRecord
 
   enum gender: %i[female male]
 
+  def main_avatar(size = 150)
+    avatar.last.variant(resize: "#{size}x#{size}") if avatar?
+  end
+
+  def avatar?
+    avatar.last.present?
+  end
+
   def join(community)
     community.members << self
   end
