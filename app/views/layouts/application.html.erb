@@ -22,10 +22,15 @@
     <% end %>
 
     <main role="main" class="container">
-      <%= yield %>
+      <div id="wrapper">
+        <%= render partial: "layouts/partials/right_sidebar" if user_signed_in? %>
+        <%= yield %>
+      </div>
     </main>
 
     <%= render partial: "layouts/partials/main_footer" if user_signed_in? %>
   </body>
+  <%= stylesheet_link_tag 'right_sidebar', media: 'all' %>
+  <%= javascript_include_tag 'right_sidebar' %>
 
 </html>
