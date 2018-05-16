@@ -9,7 +9,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w[profile_card.css]
 Rails.application.config.assets.precompile += %w[nav_bar.css]
-Rails.application.config.assets.precompile += %w[sticky_footer.css]
+Rails.application.config.assets.precompile += %w[sticky_footer.css right_sidebar.css right_sidebar.js]
 Rails.application.config.assets.precompile += %w[user_system.css grid_display.css community/hover_button_transition.js community/membership_approval_toggle.js]
 
 # Precompile additional assets.
