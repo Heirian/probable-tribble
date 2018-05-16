@@ -17,6 +17,10 @@ class Profile < ApplicationRecord
 
   enum gender: %i[female male]
 
+  def avatar?
+    avatar.last.present?
+  end
+
   def join(community)
     community.members << self
   end
