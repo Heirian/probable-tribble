@@ -1,12 +1,14 @@
 const sideBarId = $("#sidebar-wrapper");
+const locale = $("#locale").attr('value');
 
 $(document).on('click', '.bt-toggle', {}, function(e) {
   let value = e.target.getAttribute('value')
   let kind = e.target.getAttribute('kind')
+  let button_text = e.target.getAttribute('button_text')
   e.preventDefault();
   $("#wrapper").addClass("toggled");
   sidebar_cleaner();
-  getInstance(value, kind);
+  getInstance(value, kind, button_text);
 });
 
 function sidebar_cleaner() {
@@ -15,10 +17,10 @@ function sidebar_cleaner() {
 };
 
 
-async function getInstance(value, kind) {
-  const url = `http://localhost:3000/${kind}/${value}.json`
+async function getInstance(value, kind, button_text) {
+  let url = `/${locale}/${kind}/${value}`
   try {
-    let response = await fetch(url);
+    let response = await fetch(url + '.json');
     if (response.ok) {
       let instaces = await response.json();
       let profile = JSON.parse(instaces.profile)
@@ -33,7 +35,7 @@ async function getInstance(value, kind) {
       cardBody.append("<img src=" + `${avatar}` + " class='gravatar profile-img rounded mx-auto d-block rounded-circle' width='90' height='90' alt='Avatar'>");
       cardBody.append("<br><h5 class='card-title'>" + `${profile.username}` + '</h5>');
       cardBody.append("<p class='card-text'>" + `${profile.bio}` + '</p>');
-      cardBody.append("<a class='btn btn-primary' href='#'>" + 'View profile</a>');
+      cardBody.append("<a class='btn btn-primary' href=" + url + ">" + button_text + '</a>');
       sideBarId.append("<span class='text-center'><i class='btn close-sidebar fas fa-angle-double-right'></i></span>")
       return instaces;
     }
