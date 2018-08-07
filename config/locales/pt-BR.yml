@@ -60,6 +60,7 @@ pt-BR:
   sign_in: "Entrar"
   sign_up_terms: "Ao cadastrar-se, você concorda com nossos Termos e Política de Privacidade."
   sign_up: "Cadastre-se"
+  view_profile: 'Ver perfil'
   activerecord:
     attributes:
       profile:

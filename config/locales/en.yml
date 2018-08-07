@@ -60,6 +60,7 @@ en:
   sign_in: 'Sign in'
   sign_up_terms: 'By signing up, you agree to our Terms & Privacy Policy.'
   sign_up: 'Sign up'
+  view_profile: 'View profile'
   activity:
     one: 'Activity'
     other: 'Activities'
